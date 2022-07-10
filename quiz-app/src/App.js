@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import axios from "axios"
+import Home from "./components/Home/Home"
+import Footer from "./components/Footer/Footer"
+import { BrowserRouter,Routes,Route} from "react-router-dom"
+import Quiz from "./components/Quiz/Quiz"
+import { useState } from 'react';
 
 function App() {
-  return (
+  // const [questions, setquestions] = useState();
+  // const [result, setresult] = useState(0);
+
+  const getquestions= async()=>{
+
+    const { data }=await axios.get('https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple');
+    console.log(data)
+  };
+   return(
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
+    <Routes>
+    <Route path='/quiz' element={<Quiz/>} exact></Route>
+    <Route path='' element={<Home
+     getquestions={getquestions}
+    />}></Route>
+    </Routes>
+    <Footer/>
+    </BrowserRouter>
+
   );
 }
 
