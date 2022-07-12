@@ -4,25 +4,34 @@ import Home from "./components/Home/Home"
 import Footer from "./components/Footer/Footer"
 import { BrowserRouter,Routes,Route} from "react-router-dom"
 import Quiz from "./components/Quiz/Quiz"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
-  // const [questions, setquestions] = useState();
-  // const [result, setresult] = useState(0);
-
+  
+  const [questions, setquestions] = useState([]);
+  const [result, setresult] = useState(0);
   const getquestions= async()=>{
 
     const { data }=await axios.get('https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple');
-    console.log(data.results)
+    setquestions(data.results);
   };
+  useEffect(() => {
+    getquestions();
+  }, []);
    return(
     <BrowserRouter>
     <div className="App">
     </div>
     <Routes>
-    <Route path='/quiz' element={<Quiz/>} exact></Route>
-    <Route path='' element={<Home
-    />}></Route>
+    <Route path='/' element={<Home
+     getquestions={getquestions}
+    />} exact></Route>
+    <Route path='/quiz' element={<Quiz
+      questions={questions}
+      result={result}
+      setresult={setresult}
+      setquestions={setquestions}
+    />} exact></Route>
     </Routes>
     <Footer/>
     </BrowserRouter>

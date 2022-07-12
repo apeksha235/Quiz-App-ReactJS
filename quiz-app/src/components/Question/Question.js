@@ -1,21 +1,19 @@
-import './Question.css'
-import React from 'react'
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Quiz from '../Quiz/Quiz';
+import { Button } from '@mui/material';
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import "./Question.css";
 
-const Question=({
-    currQues,
-    setCurrQues,
-    questions,
-    options,
-    correct,
-    setresult,
-    result,
-    setquestions,
-  })=>{
-    console.log(questions)
- const [selected, setSelected] = useState();
+const Question = ({
+  currQues,
+  setCurrQues,
+  questions,
+  options,
+  correct,
+  setresult,
+  result,
+  setquestions,
+}) => {
+  const [selected, setSelected] = useState();
   const [error, setError] = useState(false);
 
   const history = useNavigate();
@@ -28,17 +26,18 @@ const Question=({
 
   const handleCheck = (i) => {
     setSelected(i);
-    if (i === correct) setresult(result + 1);
+    if (i === correct) setresult(++result);
     setError(false);
   };
 
   const handleNext = () => {
-    if (currQues > 8) {
+    if (currQues > 3) {
       history("/result");
     } else if (selected) {
       setCurrQues(currQues + 1);
       setSelected();
     } else setError("Please select an option first");
+    console.log(currQues)
   };
 
   const handleQuit = () => {
@@ -48,10 +47,10 @@ const Question=({
 
   return (
     <div className="question">
-      <h1>Question {currQues + 1} :</h1>
+      <h1>Question {currQues+1} :</h1>
 
       <div className="singleQuestion">
-        <h2>{questions[5].question}</h2>
+        <h2>{questions[currQues].question}</h2>
         <div className="options">
           {options &&
             options.map((i) => (
@@ -66,7 +65,7 @@ const Question=({
             ))}
         </div>
         <div className="controls">
-          {/* <Button
+          <Button
             variant="contained"
             color="secondary"
             size="large"
@@ -83,8 +82,8 @@ const Question=({
             style={{ width: 185 }}
             onClick={handleNext}
           >
-            {currQues > 20 ? "Submit" : "Next Question"}
-          </Button> */}
+            {currQues>3? "Submit" : "Next Question"}
+          </Button>
         </div>
       </div>
     </div>
@@ -92,4 +91,3 @@ const Question=({
 };
 
 export default Question;
-
