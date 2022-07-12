@@ -52,6 +52,7 @@ const Question = ({
 
       <div className="singleQuestion">
         <h2>{questions[currQues].question}</h2>
+        <span className='errorMes'>{error}</span>
         <div className="options">
           {options &&
             options.map((i) => (

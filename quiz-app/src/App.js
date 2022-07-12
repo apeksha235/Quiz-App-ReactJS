@@ -5,7 +5,6 @@ import Footer from "./components/Footer/Footer"
 import { BrowserRouter,Routes,Route} from "react-router-dom"
 import Quiz from "./components/Quiz/Quiz"
 import { useEffect, useState } from 'react';
-import Result from './components/Result/Result';
 
 function App() {
   const[name,setName]=useState("");
@@ -36,10 +35,6 @@ function App() {
       setresult={setresult}
       setquestions={setquestions}
     />} exact></Route>
-    <Route path='/result' element={<Result
-      result={result}
-    />} exact>
-    </Route>
     </Routes>
     <Footer/>
     </BrowserRouter>

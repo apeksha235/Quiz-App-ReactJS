@@ -10,3 +10,13 @@ span.subtitle{
     color:rgb(53, 22, 54);
     position:absolute;
 }
+
+@media(max-width:480px){
+    span.subtitle{
+        font-size: 18px;
+    }
+    span.score{
+        float:right;
+        font-size: 18px;
+    }
+}

@@ -106,3 +106,27 @@
   a{
     color:rgb(94, 94, 125)
   }
+
+  .errorMes{
+    color:#b43c3c;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  @media(max-width: 480px){
+
+    div.modal{
+      width: 300px;
+      height:300px;
+      font-size: 20px;
+    }
+    .modal > .header{
+      font-size: 15px;
+    }
+    .singleQuestion{
+      font-size: 15px;
+    }
+    .singleOption{
+      font-size: 15px;
+    }
+  }
