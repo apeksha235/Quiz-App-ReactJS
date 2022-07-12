@@ -26,7 +26,7 @@ const Quiz = ({questions, result, setresult, setquestion }) => {
       {questions?(
         <>
           <div className="quizInfo">
-            <span>
+            <span className='score'>
               {/* {questions[currQues].difficulty} */}
               Score : {result}
             </span>

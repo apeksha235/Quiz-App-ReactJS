@@ -1,23 +1,15 @@
 import { Button } from '@mui/material';
-import { useEffect } from "react";
-import { useHistory } from "react-router";
 import "./Result.css";
 
-const Result = ({ name, score }) => {
-  const history = useHistory();
+const Result = ({result}) => {
 
-  useEffect(() => {
-    if (!name) {
-      history.push("/");
-    }
-  }, [name, history]);
 
   return (
     <div className="result">
-      <span className="title">Final Score : {score}</span>
+      <span className="title">Final Score : {result}</span>
       <Button
         variant="contained"
-        color="secondary"
+        color="primary"
         size="large"
         style={{ alignSelf: "center", marginTop: 20 }}
         href="/"
