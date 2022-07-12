@@ -13,7 +13,7 @@ function App() {
   const getquestions= async()=>{
 
     const { data }=await axios.get('https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple');
-    console.log(data)
+    console.log(data.results)
   };
    return(
     <BrowserRouter>
@@ -22,7 +22,6 @@ function App() {
     <Routes>
     <Route path='/quiz' element={<Quiz/>} exact></Route>
     <Route path='' element={<Home
-     getquestions={getquestions}
     />}></Route>
     </Routes>
     <Footer/>
