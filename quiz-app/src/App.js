@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import Result from './components/Result/Result';
 
 function App() {
-  
+  const[name,setName]=useState("");
   const [questions, setquestions] = useState([]);
   const [result, setresult] = useState(0);
   const getquestions= async()=>{
@@ -25,9 +25,12 @@ function App() {
     </div>
     <Routes>
     <Route path='/' element={<Home
+    name={name}
+    setName={setName}
      getquestions={getquestions}
     />} exact></Route>
     <Route path='/quiz' element={<Quiz
+      name={name}
       questions={questions}
       result={result}
       setresult={setresult}

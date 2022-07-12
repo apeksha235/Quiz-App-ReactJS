@@ -4,7 +4,7 @@ import Question from '../Question/Question';
 import { CircularProgress } from '@mui/material';
 import './Quiz.css'
 
-const Quiz = ({questions, result, setresult, setquestion }) => {
+const Quiz = ({name,questions, result, setresult, setquestion }) => {
   const [options, setOptions] = useState('');
   const [currQues, setCurrQues] = useState(0);                
   useEffect(() => {
@@ -22,12 +22,11 @@ const Quiz = ({questions, result, setresult, setquestion }) => {
 
   return (
     <div className="quiz">
-      {/* <span className="subtitle">Welcome, {name}</span> */}
       {questions?(
         <>
           <div className="quizInfo">
+          <span className="subtitle">Welcome, {name}</span>
             <span className='score'>
-              {/* {questions[currQues].difficulty} */}
               Score : {result}
             </span>
           </div>

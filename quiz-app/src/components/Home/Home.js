@@ -2,17 +2,25 @@ import React from 'react';
 import './Home.css';
 import { useNavigate } from "react-router-dom";
 import { Button} from 'react-bootstrap';
+import { TextField } from '@mui/material';
 
-const Home = ({getquestions}) =>{
-      
+const Home = ({name,setName,getquestions}) =>{
+  var count
   const history=useNavigate();
   const Submit=()=>{
+
     getquestions();
     history("/quiz");
   }
     return(
         <div className="container">
           <h3>Quiz on Computer Awareness</h3>
+          <TextField
+            style={{ marginBottom: 25 }}
+            label="Enter Your Name"
+            variant="outlined"
+            onChange={(e) => setName(e.target.value)}
+          />
           <ul>
             <li>This quiz contains 10 questions</li>
             <li>You'll get 1 minute for each question</li>

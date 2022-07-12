@@ -1,13 +1,15 @@
 import { Button } from '@mui/material';
 import "./Result.css";
 
-const Result = ({result}) => {
 
+const Result = ({result}) => {
+    
 
   return (
     <div className="result">
       <span className="title">Final Score : {result}</span>
       <Button
+        
         variant="contained"
         color="primary"
         size="large"

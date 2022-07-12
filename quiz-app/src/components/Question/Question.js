@@ -2,6 +2,7 @@ import { Button } from '@mui/material';
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import "./Question.css";
+import Popup from 'reactjs-popup';
 
 const Question = ({
   currQues,
@@ -67,7 +68,7 @@ const Question = ({
         <div className="controls">
           <Button
             variant="contained"
-            color="secondary"
+            color="primary"
             size="large"
             style={{ width: 185 }}
             href="/"
@@ -75,6 +76,8 @@ const Question = ({
           >
             Quit
           </Button>
+          {currQues<=3?(
+            <>
           <Button
             variant="contained"
             color="primary"
@@ -82,8 +85,55 @@ const Question = ({
             style={{ width: 185 }}
             onClick={handleNext}
           >
-            {currQues>3? "Submit" : "Next Question"}
+            Next Question
           </Button>
+          </>
+          ): 
+          <Popup
+    trigger={<button className="button">Submit</button>}
+    modal
+    nested
+  >
+    {close => (
+      <div className="modal">
+        <button className="close" onClick={close}>
+          &times;
+        </button>
+        <div className="header">Your final score is: {result}</div>
+        <br/>
+        <br/>
+        <div className="content">
+          {result==5?(
+               <>
+               <div>Well Done!!!</div>
+               <br></br>
+               <div><a href="/#">Click here </a>to get the best offer from UpCloud digital healthcare</div>
+               </>
+          ):result>=2?(
+            <>
+          <div>Very Good!!!</div>
+          <br></br>
+          <div><a href="/#">Click here </a>to get the best offer from UpCloud digital healthcare</div>
+          </>):
+          <><div>Sorry you are not eligible to get best offer, Please try again!</div>
+          <Button
+        variant="contained"
+        color="primary"
+        size="large"
+        style={{ alignSelf: "center", marginTop: 20 }}
+        href="/">
+        Go to homepage
+    </Button></>
+          }
+        </div>
+        <div className="actions">
+
+        </div>
+      </div>
+    )}
+  </Popup>
+          
+          }
         </div>
       </div>
     </div>
