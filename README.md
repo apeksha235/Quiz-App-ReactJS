@@ -1,4 +1,7 @@
 ## Responsive Quiz-App using ReactJS
+### [Link](https://reactjs-apeksha.vercel.app/) to the application
+
+[API used](https://opentdb.com/api_config.php)
 
 1.	This is a responsive Quiz web application using ReactJS. 
 2.	It consists 4 major components: 
