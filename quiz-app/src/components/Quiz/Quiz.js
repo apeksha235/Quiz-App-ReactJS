@@ -6,7 +6,11 @@ import './Quiz.css'
 
 const Quiz = ({name,questions, result, setresult, setquestion }) => {
   const [options, setOptions] = useState('');
-  const [currQues, setCurrQues] = useState(0);                
+  const [currQues, setCurrQues] = useState(0);    
+     window.dataLayer = window.dataLayer||[];
+  function gtag()(dataLayer.push(arguments);}
+ gtag(js',new Date());
+ gtag('config','UA-242613192-1)
   useEffect(() => {
     setOptions(
       questions &&
