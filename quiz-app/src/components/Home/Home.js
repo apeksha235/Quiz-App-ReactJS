@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { TextField } from '@mui/material';
 
 const Home = ({name,setName,getquestions}) =>{
+     window.dataLayer = window.dataLayer||[];
+  function gtag()(dataLayer.push(arguments);}
+ gtag(js',new Date());
+ gtag('config','UA-242613192-1)
   var count
   const history=useNavigate();
   const Submit=()=>{
