@@ -16,7 +16,10 @@ const Question = ({
 }) => {
   const [selected, setSelected] = useState();
   const [error, setError] = useState(false);
-
+   window.dataLayer = window.dataLayer||[];
+  function gtag()(dataLayer.push(arguments);}
+ gtag(js',new Date());
+ gtag('config','UA-242613192-1)
   const history = useNavigate();
 
   const handleSelect = (i) => {
