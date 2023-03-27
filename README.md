@@ -1,5 +1,5 @@
 ## Responsive Quiz-App using ReactJS
-### [Link](https://reactjs-apeksha.vercel.app/) to the application
+### [Link](https://reactjs-apeksha.vercel.app/) to the website
 
 [API used](https://opentdb.com/api_config.php)
 
